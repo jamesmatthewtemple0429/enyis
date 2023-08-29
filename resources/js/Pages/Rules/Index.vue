@@ -66,11 +66,11 @@ import { Link } from '@inertiajs/vue3';
                    {{ rule.role_name }}
                 </td>
                 <td class="px-6 py-4">
-                    {{ rule.allow_interim }}
+                    {{ (rule.allow_interim == '0') ? 'N/A' : rule.allow_interim }}
                 </td>
                 <td class="px-6 py-4">
-                    <Link :href="route('roles.edit',rule)"><PrimaryButton class="mr-2">Edit</PrimaryButton></Link>
-                    <Link method="delete" :href="route('roles.destroy',rule)"><DangerButton>Delete</DangerButton></Link>
+                    <Link :href="route('rules.edit',rule)"><PrimaryButton class="mr-2">Edit</PrimaryButton></Link>
+                    <Link method="delete" :href="route('rules.destroy',rule)"><DangerButton>Delete</DangerButton></Link>
                 </td>
             </tr>
         </tbody>

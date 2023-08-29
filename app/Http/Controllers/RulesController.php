@@ -37,7 +37,10 @@
          */
         public function store(Request $request)
         {
-            $rule = AuthRule::create($request->all());
+            $attributes = $request->all();
+            $attributes['allow_interim'] = ($attributes['allow_interim'] == '0') ? null : $attributes['allow_interim'];
+
+            $rule = AuthRule::create($attributes);
 
             return redirect()->route('rules.index')
                 ->with([
@@ -60,30 +63,27 @@
          */
         public function update(Request $request, Role $role)
         {
-            $role->update([
-                'name'          => $request->name,
-                'description'   => $request->description,
-                'is_admin'      => $request->is_admin
-            ]);
+            $attributes = $request->all();
+            $attributes['allow_interim'] = ($attributes['allow_interim'] == '0') ? null : $attributes['allow_interim'];
 
+            $role->update($attributes);
 
-
-            return redirect()->route('roles.index')
+            return redirect()->route('rules.index')
                 ->with([
-                    'flash.banner'  => 'The Role was edited successfully!'
+                    'flash.banner'  => 'The Rule was edited successfully!'
                 ]);
         }
 
         /**
          * Remove the specified resource from storage.
          */
-        public function destroy(Role $role)
+        public function destroy(Rule $rule)
         {
-            $role->delete();
+            $rule->delete();
 
-            return redirect()->route('roles.index')
+            return redirect()->route('rules.index')
                 ->with([
-                    'flash.banner'  => 'The Role was deleted successfully!'
+                    'flash.banner'  => 'The Rule was deleted successfully!'
                 ]);
         }
     }
