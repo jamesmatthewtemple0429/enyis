@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('operator');
             $table->string('value');
 
-            $table->bigInteger('role_id')->unisnged()->nullable();
+            $table->bigInteger('role_id')->unsigned()->nullable();
 
             $table->foreign('role_id')
                 ->references('id')
