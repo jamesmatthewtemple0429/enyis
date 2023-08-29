@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('email_key')->nullable();
 
             $table->string('microsoft_id');
+
+            $table->integer('account_id')->nullable();
             $table->text('access_token')->nullable();
             $table->text('refresh_token')->nullable();
 

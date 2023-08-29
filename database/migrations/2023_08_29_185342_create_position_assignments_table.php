@@ -27,12 +27,11 @@ return new class extends Migration
             $table->string('sub_type')->nullable();
 
             $table->bigInteger('ingest_id')->unsigned();
-            
+
             $table->foreign('ingest_id')
                 ->references('id')
                 ->on('ingests')
                 ->onDelete('cascade');
-
             $table->timestamps();
         });
     }

@@ -18,16 +18,6 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -50,6 +40,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    protected $with = ['member','member.roleAssignments','member.roleAssignments.role'];
+
+
+
     /**
      * The accessors to append to the model's array form.
      *
@@ -57,5 +51,23 @@ class User extends Authenticatable
      */
     protected $appends = [
         'profile_photo_url',
+        'name',
+        'permissions',
+        'is_admin'
     ];
+
+    public function getNameAttribute() {
+        return $this->member->name;
+    }
+
+    public function getPermissionsAttribute() {
+        return $this->member->permissions;
+    }
+    public function getIsAdminAttribute() {
+        return $this->member->is_admin;
+    }
+
+    public function member() {
+        return $this->hasOne(Member::class, "account_id","account_id");
+    }
 }

@@ -21,11 +21,16 @@
 
             $nameParts = explode(",",$socialiteUser->name);
 
+            $email = hash('sha256',$socialiteUser->email);
+
+            $foundMember = Member::where('email_key', $email)->orWhere('second_email_key', $email)->first();
+
             $isUser->update([
                 'email'             => $socialiteUser->email,
-                'email_key'         => hash('sha256',$socialiteUser->email),
+                'email_key'         => $email,
                 'access_token'      => $socialiteUser->token,
                 'refresh_token'     => $socialiteUser->refreshToken,
+                'account_id'        => $foundMember->account_id
             ]);
 
             auth()->login($isUser);

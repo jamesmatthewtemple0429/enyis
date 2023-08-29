@@ -48,8 +48,11 @@ const logout = () => {
 
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Dashboard
+                                <NavLink :href="route('roles.index')" :active="route().current('roles.index')">
+                                    System Roles
+                                </NavLink>
+                                <NavLink :href="route('rules.index')" :active="route().current('rules.index')">
+                                    Auth Rules
                                 </NavLink>
                             </div>
                         </div>
