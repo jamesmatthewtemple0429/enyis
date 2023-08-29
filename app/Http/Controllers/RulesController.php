@@ -61,12 +61,12 @@
         /**
          * Update the specified resource in storage.
          */
-        public function update(Request $request, Role $role)
+        public function update(Request $request, AuthRule $rule)
         {
             $attributes = $request->all();
             $attributes['allow_interim'] = ($attributes['allow_interim'] == '0') ? null : $attributes['allow_interim'];
 
-            $role->update($attributes);
+            $rule->update($attributes);
 
             return redirect()->route('rules.index')
                 ->with([
@@ -77,7 +77,7 @@
         /**
          * Remove the specified resource from storage.
          */
-        public function destroy(Rule $rule)
+        public function destroy(AuthRule $rule)
         {
             $rule->delete();
 
