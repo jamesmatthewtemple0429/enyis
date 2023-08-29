@@ -60,6 +60,9 @@ class User extends Authenticatable
         return $this->member->name;
     }
 
+    public function hasPermission($permission) {
+        return in_array($permission, $this->permissions) || ($this->is_admin == true);
+    }
     public function getPermissionsAttribute() {
         return $this->member->permissions;
     }
