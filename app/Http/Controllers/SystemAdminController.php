@@ -16,7 +16,7 @@ class SystemAdminController extends Controller
             ],
             [
                 'name'          => 'Authorization Rules',
-                'description'   => 'Authorization Rules allow Administrators to assign Authorized Interim Positions and System Roles to members or positions.',
+                'description'   => 'Authorization Rules assign Positions or System Roles to Members, Positions, or Qualifications.',
                 'url'           => route('rules.index')
             ]
         ])->chunk(3);

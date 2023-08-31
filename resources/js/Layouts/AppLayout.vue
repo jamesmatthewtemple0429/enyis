@@ -52,7 +52,7 @@ const logout = () => {
                                     Interim Assignments
                                 </NavLink>
                                 <NavLink v-if="$page.props.navPermissions['Interims'] == true" :href="route('issues.index')" :active="route().current('issues.index')">
-                                    System Issues
+                                    App Issues
                                 </NavLink>
                                 <NavLink v-if="$page.props.navPermissions['Interims'] == true" :href="route('system.index')" :active="route().current('system.index')">
                                     System Administration
