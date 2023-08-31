@@ -48,12 +48,47 @@ const logout = () => {
 
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <NavLink v-if="$page.props.navPermissions['Interims'] == true" :href="route('interims.index')" :active="route().current('interims.index')">
+                                    Interim Assignments
+                                </NavLink>
+                                <NavLink v-if="$page.props.navPermissions['Interims'] == true" :href="route('issues.index')" :active="route().current('issues.index')">
+                                    System Issues
+                                </NavLink>
+                                <NavLink v-if="$page.props.navPermissions['Interims'] == true" :href="route('system.index')" :active="route().current('system.index')">
+                                    System Administration
+                                </NavLink>
+                                <NavLink v-if="$page.props.navPermissions['Interims'] == true" :href="route('rules.index')" :active="route().current('rules.index')">
+                                    Situational Awareness
+                                </NavLink>
+                                <NavLink v-if="$page.props.navPermissions['Interims'] == true" :href="route('rules.index')" :active="route().current('rules.index')">
+                                    Situational Monitoring
+                                </NavLink>
+                                <!--
+                                <NavLink v-if="$page.props.navPermissions['Interims'] == true" :href="route('rules.index')" :active="route().current('rules.index')">
+                                    Announcements
+                                </NavLink>
+                                <NavLink v-if="$page.props.navPermissions['Interims'] == true" :href="route('rules.index')" :active="route().current('rules.index')">
+                                    States of Emergency
+                                </NavLink>
+                                <NavLink v-if="$page.props.navPermissions['Interims'] == true" :href="route('rules.index')" :active="route().current('rules.index')">
+                                    Travel Bans
+                                </NavLink>
+                                -->
+
+                                <!--
+                                <NavLink v-if="$page.props.navPermissions['Interims'] == true" :href="route('rules.index')" :active="route().current('rules.index')">
+                                    Interim Assignments
+                                </NavLink>
+                                <NavLink v-if="$page.props.navPermissions['Interims'] == true" :href="route('rules.index')" :active="route().current('rules.index')">
+                                    Unknown Locations
+                                </NavLink>
                                 <NavLink v-if="$page.props.navPermissions['Roles'] == true" :href="route('roles.index')" :active="route().current('roles.index')">
                                     System Roles
                                 </NavLink>
                                 <NavLink v-if="$page.props.navPermissions['Roles'] == true" :href="route('rules.index')" :active="route().current('rules.index')">
                                     Auth Rules
                                 </NavLink>
+                                -->
                             </div>
                         </div>
 

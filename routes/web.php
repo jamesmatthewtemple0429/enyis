@@ -42,6 +42,11 @@ Route::middleware([
 
     Route::resource('roles','RolesController');
     Route::resource('rules','RulesController');
+    Route::resource('issues','IssuesController');
+    Route::resource('interims','InterimsController');
 
+    Route::prefix("system")->group(function() {
+       Route::get("/", "SystemAdminController@index")->name("system.index");
+    });
 });
 

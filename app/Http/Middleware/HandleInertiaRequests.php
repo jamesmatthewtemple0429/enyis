@@ -40,6 +40,7 @@ class HandleInertiaRequests extends Middleware
 
         if(auth()->check()) {
             $navPermissions = [
+                'Interims' => auth()->user()->hasPermission('interims.self') || auth()->user()->hasPermission('interims.admin'),
                 'Roles' => auth()->user()->hasPermission('roles.manage'),
                 'Rules' => auth()->user()->hasPermission('rules.manage')
             ];
