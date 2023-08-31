@@ -12,10 +12,10 @@ import { Head, Link, router } from '@inertiajs/vue3';
 </script>
 
 <template>
-    <AppLayout title="System Administrator Center">
+    <AppLayout title="Situational Awareness Center">
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-                System Administrator Center
+                 Situational Awareness Center
             </h2>
         </template>
 

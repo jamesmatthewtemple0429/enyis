@@ -48,5 +48,14 @@ Route::middleware([
     Route::prefix("system")->group(function() {
        Route::get("/", "SystemAdminController@index")->name("system.index");
     });
+
+    Route::prefix("sitawareness")->group(function() {
+        Route::get("/", "SituationalAwarenessController@index")->name("situationalawareness.index");
+    });
+
+    Route::resource('announcements','AnnouncementsController');
+    Route::resource('statesofemergency','StatesOfEmergencyController');
+    Route::resource('travelbans','TravelBansController');
+    Route::resource('groundstops','GroundStopsController');
 });
 

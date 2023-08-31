@@ -57,7 +57,7 @@ const logout = () => {
                                 <NavLink v-if="$page.props.navPermissions['Interims'] == true" :href="route('system.index')" :active="route().current('system.index')">
                                     System Administration
                                 </NavLink>
-                                <NavLink v-if="$page.props.navPermissions['Interims'] == true" :href="route('rules.index')" :active="route().current('rules.index')">
+                                <NavLink v-if="$page.props.navPermissions['Interims'] == true" :href="route('situationalawareness.index')" :active="route().current('situationalawareness.index')">
                                     Situational Awareness
                                 </NavLink>
                                 <NavLink v-if="$page.props.navPermissions['Interims'] == true" :href="route('rules.index')" :active="route().current('rules.index')">
