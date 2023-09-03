@@ -21,8 +21,8 @@ class SystemAdminController extends Controller
             ],
             [
                 'name'          => 'Counties',
-                'description'   => 'Authorization Rules assign Positions or System Roles to Members, Positions, or Qualifications.',
-                'url'           => route('rules.index')
+                'description'   => 'Identify Counties that Information System will monitor, including DCS Territory and Chapter Assignments.',
+                'url'           => route('counties.index')
             ]
         ])->chunk(3);
 

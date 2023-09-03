@@ -16,15 +16,6 @@ use App\Models\Role;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
-
 Route::prefix("auth")->name("auth.")->namespace('Auth')->group(function() {
     Route::get('redirect','MicrosoftAuthController@redirect')->name('redirect');
     Route::get('handle','MicrosoftAuthController@handle')->name('handle');
@@ -36,7 +27,7 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', function () {
+    Route::get('/', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
 
@@ -44,6 +35,7 @@ Route::middleware([
     Route::resource('rules','RulesController');
     Route::resource('issues','IssuesController');
     Route::resource('interims','InterimsController');
+    Route::resource('counties','CountiesController');
 
     Route::prefix("system")->group(function() {
        Route::get("/", "SystemAdminController@index")->name("system.index");

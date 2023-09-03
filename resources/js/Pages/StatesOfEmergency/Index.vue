@@ -24,17 +24,17 @@ import { Link } from '@inertiajs/vue3';
 </script>
 
 <template>
-    <AppLayout title="View Interim Assignments List">
+    <AppLayout title="View States of Emergency List">
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-                View Interim Assignments List
+                View States of Emergency List
             </h2>
         </template>
 
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
-    <div class="mb-4"><Link :href="route('interims.create')"><PrimaryButton>Create Interim Assignment</PrimaryButton></Link></div>
+    <div class="mb-4"><Link :href="route('statesofemergency.create')"><PrimaryButton>Create State of Emergency</PrimaryButton></Link></div>
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
     <div class="pb-4 bg-white dark:bg-gray-900">
         <label for="table-search" class="sr-only">Search</label>
@@ -48,46 +48,40 @@ import { Link } from '@inertiajs/vue3';
     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
-                <th width="5%" scope="col" class="px-6 py-3">
-                    Position
-                </th>
-
                 <th width="15%" scope="col" class="px-6 py-3">
-                    Member
+                    Effective Date
                 </th>
 
                 <th width="25%" scope="col" class="px-6 py-3">
-                    Effective At
-                </th>
-                <th width="25%" scope="col" class="px-6 py-3">
-                    Expires At
+                    Jurisdiction
                 </th>
 
-                <th width="25%" scope="col" class="px-6 py-3">
+                <th width="40%" scope="col" class="px-6 py-3">
+                    Description
+                </th>
+
+                <th width="20%" scope="col" class="px-6 py-3">
                     Actions
                 </th>
             </tr>
         </thead>
         <tbody>
          <tr v-if="roles.length == 0" class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
-            <td class ="py-4 px-4" dark:text-white colspan="100%">There are no Interim Assignments yet.</td>
+            <td class ="text-center py-4 px-4" dark:text-white colspan="100%">There are no States of Emergency yet.</td>
          </tr>
             <tr v-for="role in roles" class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    {{ role.position }}
+                    {{ role.pretty_effective }}
                 </th>
                 <td class="px-6 py-4">
-                    {{ role.member.name }}
+                    {{ (role.type == 1) ? 'State-Wide' : role.display_counties }}
                 </td>
                 <td class="px-6 py-4">
-                   {{ role.pretty_effective }}
+                   {{ role.description }}
                 </td>
                 <td class="px-6 py-4">
-                    {{ role.pretty_expires }}
-                </td>
-                <td class="px-6 py-4">
-                    <Link :href="route('interims.edit',role)"><PrimaryButton class="mr-2">Edit</PrimaryButton></Link>
-                <Link method="delete" as="button" :href="route('interims.destroy',role)"><DangerButton class="mr-2">Delete</DangerButton></Link></td>
+                    <Link :href="route('statesofemergency.edit',role)"><PrimaryButton class="mr-2">Edit</PrimaryButton></Link>
+                <Link method="delete" as="button" :href="route('statesofemergency.destroy',role)"><DangerButton class="mr-2">Delete</DangerButton></Link></td>
             </tr>
         </tbody>
     </table>
