@@ -38,7 +38,7 @@ class ProcessEventsFile extends Command
             RccEvent::where('entered_at','<',now()->subDays(30)->setTime(0,0,0))
                 ->update(['ingest_id' => $ingest->id]);
 
-            Ingest::where('name','Eve   nt')->where('id','!=', $ingest->id)->delete();
+            Ingest::where('name','Event')->where('id','!=', $ingest->id)->delete();
 
             File::delete(storage_path('lists/events.csv'));
         }
