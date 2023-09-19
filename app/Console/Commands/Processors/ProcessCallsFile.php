@@ -35,7 +35,10 @@ class ProcessCallsFile extends Command
 
             \Excel::import(new CallImport($ingest), 'rcr_calls.csv','lists');
 
-            Ingest::where('subject','Calls')->where('id','!=',$ingest->id)->delete();
+            Call::where('acknowledged_at', '<', now()->subDays(30)->setTime(0,0,0))
+                ->update(['ingest_id' => $ingest->id]);
+            
+            Ingest::where('name','Calls')->where('id','!=',$ingest->id)->delete();
 
             File::delete(storage_path('lists/rcr_calls.csv'));
         }
