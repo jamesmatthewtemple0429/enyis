@@ -13,25 +13,25 @@
     }
 
     function currentDos() {
-        $primaryDo = Shift::with('member')
+        $primaryDo = optional(Shift::with('member')
             ->where('type',1)
             ->where('starts_at','<=',now())
             ->where('ends_at','>=',now())
-            ->first()
+            ->first())
             ->member;
 
-        $backupDo = Shift::with('member')
+        $backupDo = optional(Shift::with('member')
             ->where('type',2)
             ->where('starts_at','<=',now())
             ->where('ends_at','>=',now())
-            ->first()
+            ->first())
             ->member;
 
-        $supervisor = Shift::with('member')
+        $supervisor = optional(Shift::with('member')
             ->where('type',3)
             ->where('starts_at','<=',now())
             ->where('ends_at','>=',now())
-            ->first()
+            ->first())
             ->member;
 
         return [

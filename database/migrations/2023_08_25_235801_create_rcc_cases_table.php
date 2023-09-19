@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('case_number');
             $table->string('owner');
             $table->timestamp('entered_at');
-            $table->string('disaster_address');
+            $table->text('disaster_address');
 
             $table->string('event');
             $table->boolean('virtual_response');

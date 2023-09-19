@@ -17,6 +17,26 @@
 
                 @if($section->type == 2)
                     <span style="margin-left: 5px;">{{ $section->value }}</span>
+                        <section>
+                            <div style="font-size:12px;"><strong style="color: darkred; font-size:12px; margin-top:10px; margin-left:25px;">On-Call Supervisor:</strong> {{  $sectionData[$section->id]['sv']['name'] }} {{ format_phone($sectionData[$section->id]['sv']['cell_phone']) }}</div>
+
+                            <div style="margin-top:30px; margin-left: 25px;">
+                                <div style="margin-right: 50px; display:inline-block; height:80px; width:300px;">
+                                    <div style="color: darkred; font-size:12px;"><strong>Primary Duty Officers</strong></div>
+                                    @foreach($sectionData[$section->id]['primaries'] as $shift)
+                                        <div style="font-size:9px; margin-bottom: 10px;">{{ $shift->starts_at->format('h:i A') }} - {{ $shift->ends_at->format('h:i A') }}:  {{ $shift->member->name }} {{ format_phone($shift->member->cell_phone) }}</div>
+                                    @endforeach
+                                </div>
+
+                                <div style="display:inline-block;height:80px; width:300px;">
+                                    <div style="color: darkred; font-size:12px"><strong>Backup Duty Officers</strong></div>
+
+                                    @foreach($sectionData[$section->id]['backups'] as $shift)
+                                        <div style="font-size:9px; margin-bottom: 10px;>{{ $shift->starts_at->format('h:i A') }} - {{ $shift->ends_at->format('h:i A') }}:  {{ $shift->member->name }} {{ format_phone($shift->member->cell_phone) }}</div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </section>
                 @endif
 
                 @if($section->type == 3)
