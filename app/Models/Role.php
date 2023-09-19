@@ -11,6 +11,10 @@ class Role extends Model
 
     protected $with = ['permissions'];
 
+    public $fields = [
+        ['key' => 'name','display' => 'Name'],
+        ['key' => 'description','display' => 'Description'],
+    ];
     protected $appends = ['permission_ids'];
 
     public function permissions() {

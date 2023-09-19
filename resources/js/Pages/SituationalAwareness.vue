@@ -25,7 +25,7 @@ import { Head, Link, router } from '@inertiajs/vue3';
                    <div class="py-4 px-4">
                        <div v-for="sectionSet in sectionChunks" class="mb-4">
                            <div class="flex justify-between">
-                               <div v-for="section in sectionSet">
+                               <div class="mr-2" v-for="section in sectionSet">
                                    <div class="text-lg font-bold mb-4">{{ section.name }}</div>
 
                                    <div class="mb-4">{{ section.description }}</div>

@@ -23,6 +23,16 @@ class SystemAdminController extends Controller
                 'name'          => 'Counties',
                 'description'   => 'Identify Counties that Information System will monitor, including DCS Territory and Chapter Assignments.',
                 'url'           => route('counties.index')
+            ],
+            [
+                'name'          => 'Reports',
+                'description'   => 'The Report tool allows Administrator to build custom reports, which can then be either ran manually, or sent automatically via distribution lists.',
+                'url'           => route('reports.index')
+            ],
+            [
+                'name'          => 'Distribution Lists',
+                'description'   => 'Distribution Lists are used to automatically send Reports on a Time Schedule or when certain evens happen.',
+                'url'           => route('distributionlists.index')
             ]
         ])->chunk(3);
 

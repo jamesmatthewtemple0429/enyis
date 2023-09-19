@@ -25,6 +25,14 @@ class PositionAssignmentImport implements ToModel, WithHeadingRow
            return $member->name === $row['supervisor'];
         })->first();
 
+        if($row['account_id'] == 990331 && str_contains($row['position'], "Disaster Program Manager - Territory 4 (Employee)")) {
+            return;
+        }
+
+        if($row['account_id'] == 110419 && str_contains($row['position'], "Disaster Program Manager - Territory 5 (Employee)")) {
+            return;
+        }
+
             return new PositionAssignment([
                 'account_id'        => $row['account_id'],
                 'supervisor'        => optional($foundMember)->account_id,

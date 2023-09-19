@@ -41,8 +41,10 @@ class HandleInertiaRequests extends Middleware
         if(auth()->check()) {
             $navPermissions = [
                 'Interims' => auth()->user()->hasPermission('interims.self') || auth()->user()->hasPermission('interims.admin'),
-                'Roles' => auth()->user()->hasPermission('roles.manage'),
-                'Rules' => auth()->user()->hasPermission('rules.manage')
+                'Issues' => auth()->user()->hasPermission('issues.manage'),
+                'System' => auth()->user()->hasPermission('sysadmin.dashboard'),
+                'SituationalAwareness' => auth()->user()->hasPermission('situation.awareness'),
+                'SituationalMonitoring' => auth()->user()->hasPermission('situation.monitoring')
             ];
         }
         return array_merge(parent::share($request), [

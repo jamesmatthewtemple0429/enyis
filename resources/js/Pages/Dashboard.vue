@@ -19,7 +19,6 @@ import Welcome from '@/Components/Welcome.vue';
                         <p class="mb-2">Your status is: {{ $page.props.auth.user.member.status }}</p>
                         <p class="mb-2">Your live in: {{ $page.props.auth.user.member.county }}</p>
                         <p class="mb-2">Your Member Number is: {{ $page.props.auth.user.member.member_number }}</p>
-
                     </div>
                 </div>
             </div>

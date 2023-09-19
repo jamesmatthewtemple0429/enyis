@@ -33,6 +33,7 @@ return new class extends Migration
             $table->text('name');
             $table->string('status');
 
+            $table->string('account_name');
             $table->text('email');
             $table->string('email_key');
 

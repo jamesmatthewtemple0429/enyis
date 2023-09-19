@@ -4,6 +4,7 @@ namespace App\Console\Commands\Processors;
 
 use App\Imports\MemberImport;
 use App\Models\Ingest;
+use App\Models\PositionAssignment;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
 
@@ -34,6 +35,8 @@ class ProcessMembersFile extends Command
             \Excel::import(new MemberImport($ingest), 'members.xls','lists');
 
             Ingest::where('id','!=', $ingest->id)->where('name','member')->delete();
+
+            Storage::disk('lists')->delete("members.xls");
         }
     }
 }

@@ -16,6 +16,7 @@ const props = defineProps({
 const form = useForm({
     _method: 'PUT',
     name: props.user.name,
+    account_id: props.user.account_id,
     email: props.user.email,
     photo: null,
 });
@@ -135,7 +136,7 @@ const clearPhotoFileInput = () => {
                     v-model="form.name"
                     type="text"
                     class="mt-1 block w-full"
-                    required
+                    disabled
                     autocomplete="name"
                 />
                 <InputError :message="form.errors.name" class="mt-2" />
@@ -149,7 +150,7 @@ const clearPhotoFileInput = () => {
                     v-model="form.email"
                     type="email"
                     class="mt-1 block w-full"
-                    required
+                    disabled
                     autocomplete="username"
                 />
                 <InputError :message="form.errors.email" class="mt-2" />
@@ -174,6 +175,19 @@ const clearPhotoFileInput = () => {
                     </div>
                 </div>
             </div>
+            <!-- Name -->
+            <div class="col-span-6 sm:col-span-4">
+                <InputLabel for="name" value="Account ID" />
+                <TextInput
+                    id="name"
+                    v-model="form.account_id"
+                    type="text"
+                    class="mt-1 block w-full"
+                    disabled
+                    autocomplete="name"
+                />
+                <InputError :message="form.errors.name" class="mt-2" />
+            </div>
         </template>
 
         <template #actions>
@@ -181,9 +195,6 @@ const clearPhotoFileInput = () => {
                 Saved.
             </ActionMessage>
 
-            <PrimaryButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                Save
-            </PrimaryButton>
         </template>
     </FormSection>
 </template>

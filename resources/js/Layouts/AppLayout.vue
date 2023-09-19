@@ -51,17 +51,21 @@ const logout = () => {
                                 <NavLink v-if="$page.props.navPermissions['Interims'] == true" :href="route('interims.index')" :active="route().current('interims.index')">
                                     Interim Assignments
                                 </NavLink>
-                                <NavLink v-if="$page.props.navPermissions['Interims'] == true" :href="route('issues.index')" :active="route().current('issues.index')">
+                                <NavLink v-if="$page.props.navPermissions['Issues'] == true" :href="route('issues.index')" :active="route().current('issues.index')">
                                     App Issues
                                 </NavLink>
-                                <NavLink v-if="$page.props.navPermissions['Interims'] == true" :href="route('system.index')" :active="route().current('system.index')">
+                                <NavLink v-if="$page.props.navPermissions['System'] == true" :href="route('system.index')" :active="route().current('system.index')">
                                     System Administration
                                 </NavLink>
-                                <NavLink v-if="$page.props.navPermissions['Interims'] == true" :href="route('situationalawareness.index')" :active="route().current('situationalawareness.index')">
+                                <NavLink v-if="$page.props.navPermissions['SituationalAwareness'] == true" :href="route('situationalawareness.index')" :active="route().current('situationalawareness.index')">
                                     Situational Awareness
                                 </NavLink>
-                                <NavLink v-if="$page.props.navPermissions['Interims'] == true" :href="route('rules.index')" :active="route().current('rules.index')">
+                                <!--
+                                <NavLink v-if="$page.props.navPermissions['SituationalMonitoring'] == true" :href="route('situationmonitor.index')" :active="route().current('rules.index')">
                                     Situational Monitoring
+                                </NavLink>-->
+                                <NavLink v-if="$page.props.navPermissions['Workforce'] == true" :href="route('rules.index')" :active="route().current('rules.index')">
+                                    Workforce
                                 </NavLink>
                                 <!--
                                 <NavLink v-if="$page.props.navPermissions['Interims'] == true" :href="route('rules.index')" :active="route().current('rules.index')">

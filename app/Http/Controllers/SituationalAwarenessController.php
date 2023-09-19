@@ -11,22 +11,22 @@ class SituationalAwarenessController extends Controller
         $sections = collect([
             [
                 'name'          => 'Announcements',
-                'description'   => 'System Roles assign permissions to Volunteer Connection Members via Authorization Rules. System Roles are Region Wide Resources.',
+                'description'   => 'Announcements may be used to share important changes to the program with the Workforce. Announcements may be viewed from Information System, or from Reports.',
                 'url'           => route('announcements.index')
             ],
             [
                 'name'          => 'States of Emergency',
-                'description'   => 'Authorization Rules assign Positions or System Roles to Members, Positions, or Qualifications.',
+                'description'   => 'States of Emergency are issued by Government Agencies in response to Natural Disasters. State of Emergencies are available to the workforce via reports.',
                 'url'           => route('statesofemergency.index')
             ],
             [
-            'name'          => 'Travel Bans',
-            'description'   => 'Authorization Rules assign Positions or System Roles to Members, Positions, or Qualifications.',
+            'name'          => 'Travel Warnings',
+            'description'   => 'Travel Warnings are issued by Government Agencies in response to Natural Disasters. Travel Warnings are available to the workforce via reports.',
             'url'           => route('travelbans.index')
             ],
             [
                 'name'          => 'Ground Stops',
-                'description'   => 'Authorization Rules assign Positions or System Roles to Members, Positions, or Qualifications.',
+                'description'   => 'Ground Stops are issued by local, regional, or national Leadership in response to Natural Disasters or other unsafe conditions. During a ground stop, responders may not be asked to respond in person.',
                 'url'           => route('groundstops.index')
             ],
         ])->chunk(3);

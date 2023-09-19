@@ -14,6 +14,9 @@ return [
     |
     */
 
+    'Traffic' => [
+        'key' => env('511_KEY'),
+    ],
     'mailgun' => [
         'domain' => env('MAILGUN_DOMAIN'),
         'secret' => env('MAILGUN_SECRET'),

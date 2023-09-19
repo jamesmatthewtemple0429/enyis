@@ -17,7 +17,10 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
+    'text_ingest' => env('TEXT_INGEST'),
+    'file_ingest' => env('FILE_INGEST'),
 
+    'ingest_server' => env('INGEST_SERVER'),
     /*
     |--------------------------------------------------------------------------
     | Application Environment
@@ -70,7 +73,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'America/New_York',
 
     /*
     |--------------------------------------------------------------------------

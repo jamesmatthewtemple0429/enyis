@@ -74,7 +74,7 @@ import { Link } from '@inertiajs/vue3';
                     {{ role.pretty_effective }}
                 </th>
                 <td class="px-6 py-4">
-                    {{ (role.type == 1) ? 'State-Wide' : role.display_counties }}
+                    {{ (role.type == 1) ? 'STATE-WIDE' : role.display_counties }}
                 </td>
                 <td class="px-6 py-4">
                    {{ role.description }}
