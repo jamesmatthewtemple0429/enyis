@@ -35,7 +35,7 @@ class ProcessCasesFile extends Command
 
             \Excel::import(new CaseImport($ingest), 'cases.csv','lists');
 
-            Ingest::where('subject','Cases')->where('id','!=',$ingest->id)->delete();
+            Ingest::where('name','Cases')->where('id','!=',$ingest->id)->delete();
 
             File::delete(storage_path('lists/cases.csv'));
         }
