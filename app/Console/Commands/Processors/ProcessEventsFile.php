@@ -36,10 +36,9 @@ class ProcessEventsFile extends Command
             \Excel::import(new EventImport($ingest), 'events.csv','lists');
 
             RccEvent::where('entered_at','<',now()->subDays(30)->setTime(0,0,0))
-                ->where('name','Event')
                 ->update(['ingest_id' => $ingest->id]);
 
-            Ingest::where('name','Event')->where('id','!=', $ingest->id)->delete();
+            Ingest::where('name','Eve   nt')->where('id','!=', $ingest->id)->delete();
 
             File::delete(storage_path('lists/events.csv'));
         }
