@@ -29,6 +29,8 @@ return new class extends Migration
             $table->timestamp('closed_at')->nullable();
             $table->timestamp('iir_at')->nullable();
 
+            $table->string('do');
+
             $table->string('assigned_to');
             $table->text('disaster_address');
 

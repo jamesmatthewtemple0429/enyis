@@ -54,7 +54,7 @@ class Call extends Model
 
     public function duty_officer()
     {
-        return $this->hasOne(Member::class, "account_name","assigned_to");
+        return $this->hasOne(Member::class, "account_name","do");
     }
 
 }

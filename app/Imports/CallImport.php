@@ -122,7 +122,7 @@ class CallImport implements ToModel, WithHeadingRow, WithBatchInserts
             return new Call([
                 'call_id'           => $row['callid'],
                 'location' => hash('sha256', $location),
-                'assigned_to'       => hash('sha256',$name),
+                'do'       => hash('sha256',$name),
                 'reasonforclosure' => $row['reasonforeventclosure'],
                 'happened_at'       => ($row['eventdateandtime'] === null) ? null : new Carbon($row['eventdateandtime']),
                 'called_at'         => new Carbon($row['dateandtimeofcall']),
