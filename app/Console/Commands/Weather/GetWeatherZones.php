@@ -56,6 +56,6 @@ class GetWeatherZones extends Command
 
         WeatherZone::insert($zones);
 
-        Ingest::where('id', '!=', $ingest->id)->where('subject','wxZones')->delete();
+        Ingest::where('id', '!=', $ingest->id)->where('name','wxZones')->delete();
     }
 }
