@@ -31,7 +31,6 @@ return new class extends Migration
 
             $table->string('do');
 
-            $table->string('assigned_to')->nullable();
             $table->text('disaster_address');
 
             $table->string('caller_type')->nullable();
