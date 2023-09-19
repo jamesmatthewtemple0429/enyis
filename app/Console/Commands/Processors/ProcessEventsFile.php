@@ -3,6 +3,7 @@
 namespace App\Console\Commands\Processors;
 
 use App\Models\Ingest;
+use App\Models\RccEvent;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -34,8 +35,12 @@ class ProcessEventsFile extends Command
 
             \Excel::import(new EventImport($ingest), 'events.csv','lists');
 
-            Ingest::where('entered_at','<',now()->subDays(30)->setTime(0,0,0))->where('subject','Event')->where('id','!=',$ingest->id)->delete();
+            RccEvent::where('entered_at','<',now()->subDays(30)->setTime(0,0,0))
+                ->where('subject','Event')
+                ->update(['ingest_id' => $ingest->id]);
 
+            Ingest::where('name','Event')->where('id','!=', $ingest->id)->delete();
+            
             File::delete(storage_path('lists/events.csv'));
         }
 
